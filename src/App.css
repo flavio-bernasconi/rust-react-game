@@ -36,3 +36,144 @@
     transform: rotate(360deg);
   }
 }
+
+/* .grid{
+  position: relative;
+  transition: 1s;
+  background-color: rgb(147, 188, 224);
+  width: fit-content;
+}
+
+.row{
+  display: flex;
+} */
+
+/* .cell{
+  width:60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+} */
+
+/* .cell.hero-cell{
+  background-color: rgb(212, 212, 212)!important;
+}
+
+.cell.land{
+  background-color: rgb(162, 157, 9);
+
+}
+.cell.land:hover{
+  background-color: rgb(98, 95, 5);
+}
+
+.cell.water{
+  background-color: rgb(147, 188, 224);
+} */
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+.cell.possible-move{
+  cursor: pointer;
+  /* background: green; */
+  /* animation: greener 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards; */
+}
+
+/* .cell.possible-move:hover{
+  background-color: rgb(24, 190, 24);
+} */
+
+@keyframes greener {
+  0% {background: rgb(162, 157, 9); }
+  100%  {background: green; }
+}
+
+.hero{
+  position: absolute;
+  width:4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgb(58, 58, 58);
+  transition: 0.6s;
+  z-index: 999
+  /* animation: myfirst 5s 2;
+  animation-direction: alternate-reverse;
+  animation-iteration-count:infinite */
+}
+
+@keyframes myfirst {
+  0%   {background: red; }
+  25%  {background: yellow; }
+  50%  {background: blue; }
+  75%  {background: green; }
+  100% {background: red; }
+}
+
+.enemy{
+  width:40px;
+  border-radius: 20px;
+  height: 40px;
+  background-color: rgb(169, 18, 18);
+}
+
+
+.row {
+  &:nth-child(even) {
+    margin-left: 52px;
+  }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+.cell {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  float: left;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  transition: all .3s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+    top: -30px;
+    transition: all .3s ease;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+    bottom: -30px;
+    transition: all .3s ease;
+  }
+  /* &:hover {
+    background: darken(#ff6600, 20%);
+    &:before {
+      border-bottom: 30px solid darken(#ff6600, 20%);
+    }
+    &:after {
+      border-top: 30px solid darken(#ff6600, 20%);
+    }
+  } */
+}
