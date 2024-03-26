@@ -89,13 +89,13 @@ function App() {
 }
 
 const Cell = styled(motion.div)`
-  background-color: ${({ color }) => color};
+  /* background-color: ${({ color }) => color};
   &:before {
     border-bottom: 30px solid ${({ color }) => color};
   }
   &:after {
     border-top: 30px solid ${({ color }) => color};
-  }
+  } */
 `;
 
 export default App;
