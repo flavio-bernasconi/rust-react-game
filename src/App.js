@@ -44,8 +44,8 @@ function App() {
               const [x, y] = characterInitialPosition.new;
               const [enemyX, enemyY] = enemyInitialPosition;
 
-              const isHero = x === i && y === j;
-              const isEnemy = enemyX === i && enemyY === j;
+              const isHero = x === j && y === i;
+              const isEnemy = enemyX === j && enemyY === i;
 
               const isAPossibleMove = Boolean(
                 possibleNextMoves?.filter(
@@ -64,7 +64,9 @@ function App() {
                   key={`${i}-${j}`}
                   className={`cell ${i}-${j} ${cell === 1 ? "land" : "water"} ${
                     isAPossibleMove ? "possible-move" : ""
-                  } ${isHero ? "hero-cell" : ""}`}
+                  } ${isHero ? "hero-cell" : ""} ${
+                    isEnemy ? "enemy-cell" : ""
+                  }`}
                   onClick={(e) => {
                     if (isEnemy || cell === 0 || !isAPossibleMove) return;
                     // const rect = e.target.getBoundingClientRect();
