@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { generate_map } from "rust-component";
 import { Hero } from "./components/Hero";
+import { Enemy } from "./components/Enemy";
 import { calculatePossibleMoves } from "./utils";
 import { motion } from "framer-motion";
 import styled from "styled-components";
@@ -12,6 +13,10 @@ function App() {
   const [characterInitialPosition, setCharacterInitialPosition] = useState({
     old: initCharacterInitialPosition,
     new: initCharacterInitialPosition,
+  });
+  const [enemyPosition, setEnemyPosition] = useState({
+    old: enemyInitialPosition,
+    new: enemyInitialPosition,
   });
   const [grid, setGrid] = useState([]);
   const [possibleNextMoves, setPossibleNextMoves] = useState();
@@ -31,6 +36,7 @@ function App() {
   return (
     <div className="grid">
       <Hero position={characterInitialPosition} />
+      <Enemy position={enemyPosition} />
       {grid.map((row, i) => {
         return (
           <div key={i} className="row">
@@ -72,13 +78,11 @@ function App() {
 
                     setCharacterInitialPosition((prev) => ({
                       old: prev.new,
-                      new: [i, j],
+                      new: [j, i],
                     }));
                   }}
                   color={cell === 1 ? "#d9ffce" : "#d5e7ff"}
-                >
-                  {isEnemy && <div className={`${i}-${j} enemy`}></div>}
-                </Cell>
+                />
               );
             })}
           </div>

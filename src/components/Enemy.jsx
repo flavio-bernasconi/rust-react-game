@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { randomIntFromInterval } from "../utils";
 
-export const Hero = ({ position }) => {
+export const Enemy = ({ position }) => {
   return (
     <motion.div
       animate={{
@@ -18,7 +18,7 @@ export const Hero = ({ position }) => {
         return (
           <div
             key={`${node}`}
-            className="soldier hero"
+            className="soldier enemy"
             style={{ top: randomPosY, left: randomPosX }}
           ></div>
         );
